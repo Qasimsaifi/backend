@@ -38,7 +38,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 CORS_ORIGIN_WHITELIST = [
-    'https://web-production-11721.up.railway.app',
+    'https://blogaxis-api.up.railway.app',
     # Add other trusted origins as needed
 ]
 
@@ -98,8 +98,12 @@ WSGI_APPLICATION = 'blogapi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'dASzvj9KonJmQZ2qAMKC',
+        'HOST': 'containers-us-west-148.railway.app',
+        'PORT': '7403',
     }
 }
 
@@ -142,7 +146,7 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 CSRF_TRUSTED_ORIGINS = [
-    'https://web-production-11721.up.railway.app',
+    'https://blogaxis-api.up.railway.app'
     # Add other trusted origins as needed
 ]
 
