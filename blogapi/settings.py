@@ -142,7 +142,7 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 CSRF_TRUSTED_ORIGINS = [
-    'https://web-production-734a.up.railway.app',
+    'https://web-production-11721.up.railway.app',
     # Add other trusted origins as needed
 ]
 
