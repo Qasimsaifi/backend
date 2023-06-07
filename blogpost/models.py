@@ -1,6 +1,6 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
-
+from tinymce.models import HTMLField
 
 class Tag(models.Model):
     name = models.CharField(max_length=50)
@@ -17,7 +17,7 @@ class Category(models.Model):
 class BlogPost(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
-    content = models.TextField()
+    content = HTMLField()
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     publication_date = models.DateTimeField()
     tags = models.ManyToManyField(Tag)

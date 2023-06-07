@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'blogpost',
     'corsheaders',
     'whitenoise.runserver_nostatic',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -149,6 +150,15 @@ CSRF_TRUSTED_ORIGINS = [
     'https://blogaxis-api.up.railway.app'
     # Add other trusted origins as needed
 ]
+TINYMCE_DEFAULT_CONFIG = {
+    'height': 600,  # Specify the desired height in pixels
+    'width': 900,  # Specify the desired width in pixels
+    'plugins': 'image  media  code  emoticons  link  preview lists  wordcount  codesample  fullscreen ',
+    'toolbar': 'undo redo | formatselect | bold italic codesample wordcount| alignleft aligncenter alignright emoticons link table view | image media numlist bullist| code preview',
+    # other configuration options...
+}
+
+
 
 
 # CORS_ORIGIN_ALLOW_ALL = False
