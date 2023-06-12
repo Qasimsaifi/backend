@@ -1,12 +1,11 @@
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, generics
 from django.db import models
-from rest_framework.permissions import IsAuthenticated, BasePermission
-from .models import CodeSnippet, Comment
-from .serializers import CodeSnippetSerializer, CommentSerializer
-import django_filters.rest_framework
 from rest_framework.filters import OrderingFilter
 from rest_framework.pagination import PageNumberPagination
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from .models import CodeSnippet, Comment
+from .serializers import CodeSnippetSerializer, CommentSerializer
+import django_filters.rest_framework
 
 class CodeSnippetFilter(django_filters.FilterSet):
     class Meta:
@@ -16,7 +15,7 @@ class CodeSnippetFilter(django_filters.FilterSet):
 class CodeSnippetPagination(PageNumberPagination):
     page_size = 10
 
-class IsTokenAuthorOrReadOnly(BasePermission):
+class IsTokenAuthorOrReadOnly(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         if request.method in permissions.SAFE_METHODS:
             return True
@@ -50,6 +49,7 @@ class CodeSnippetViewSet(viewsets.ModelViewSet):
         else:
             return queryset.filter(is_private=False)
 
+
 class CommentFilter(django_filters.FilterSet):
     class Meta:
         model = Comment
@@ -65,4 +65,13 @@ class CommentViewSet(viewsets.ModelViewSet):
     filterset_class = CommentFilter
     ordering_fields = ['created_at']
     authentication_classes = [JWTAuthentication]
-    permission_classes = [IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
+
+class ModelAuthView(generics.RetrieveAPIView):
+    authentication_classes = []
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        # Implement your custom logic here
+        # Return the desired response
+        pass
