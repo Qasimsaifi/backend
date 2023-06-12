@@ -1,7 +1,7 @@
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.permissions import IsAdminUser
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
 
 from .models import User
 from .serializers import UserSerializer
@@ -17,14 +17,17 @@ class UserDetailView(APIView):
 
     def get(self, request):
         user = request.user
-        data = {
-            'email': user.email,
-            'mobile': user.mobile,
-            'profile_picture': user.profile_picture.url if user.profile_picture else None,
-            'name': {
-                'first_name': user.first_name,
-                'last_name': user.last_name,
-                'full_name': user.first_name + " " + user.last_name
+        if user.is_authenticated:
+            data = {
+                'email': user.email,
+                'mobile': user.mobile,
+                'profile_picture': user.profile_picture.url if user.profile_picture else None,
+                'name': {
+                    'first_name': user.first_name,
+                    'last_name': user.last_name,
+                    'full_name': user.first_name + " " + user.last_name
+                }
             }
-        }
-        return Response(data)
+            return Response(data)
+        else:
+            return Response({'detail': 'Authentication credentials were not provided.'}, status=status.HTTP_401_UNAUTHORIZED)
