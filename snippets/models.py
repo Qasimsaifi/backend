@@ -1,9 +1,8 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
 from tinymce.models import HTMLField
-from django.contrib.auth.models import User
-from django.utils.html import escape
-from django.utils.text import slugify
+from django.contrib.auth.models import UserManager
+from django.conf import settings
 
 class CodeSnippet(models.Model):
     PRIVACY_CHOICES = (
@@ -11,11 +10,11 @@ class CodeSnippet(models.Model):
         (1, 'Private'),
     )
 
-    author = models.ForeignKey(User, to_field='username', default=None, on_delete=models.CASCADE)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, default=None, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     slug = models.SlugField(unique=True, max_length=255, default='', null=True)
     content = HTMLField()
-    code_snippet = HTMLField()
+    code_snippet = HTMLField(null=True)
     image = CloudinaryField('image', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

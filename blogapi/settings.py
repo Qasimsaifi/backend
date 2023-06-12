@@ -6,125 +6,124 @@ import cloudinary
 
 # Add your Cloudinary credentials
 cloudinary.config(
-    cloud_name='dehpkgdw5',
-    api_key='338538795738672',
-    api_secret='6gRybYadzcKdC2FnyijAuhIhwLc'
+    cloud_name="dehpkgdw5",
+    api_key="338538795738672",
+    api_secret="6gRybYadzcKdC2FnyijAuhIhwLc",
 )
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-^*k^z%#w=-wa87c_s#l#v0c)3)3$neqoawp$4yalw1au8cq+)!'
+SECRET_KEY = "django-insecure-^*k^z%#w=-wa87c_s#l#v0c)3)3$neqoawp$4yalw1au8cq+)!"
 DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 CORS_ORIGIN_WHITELIST = [
-    'https://blogaxis-api.up.railway.app',
-    'http://localhost:5173',
-    'https://devdox.vercel.app'
+    "https://blogaxis-api.up.railway.app",
+    "http://localhost:5173",
+    "https://devdox.vercel.app"
     # Add other trusted origins as needed
 ]
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'rest_framework',
-    'django_filters',
-    'cloudinary',
-    'blogpost',
-    'corsheaders',
-    'whitenoise.runserver_nostatic',
-    'tinymce',
-    'snippets',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "rest_framework",
+    "django_filters",
+    "cloudinary",
+    "corsheaders",
+    "whitenoise.runserver_nostatic",
+    "tinymce",
+    "snippets",
+    "accounts",
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
-ROOT_URLCONF = 'blogapi.urls'
-
+ROOT_URLCONF = "blogapi.urls"
+AUTH_USER_MODEL = "accounts.User"
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'blogapi.wsgi.application'
+WSGI_APPLICATION = "blogapi.wsgi.application"
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'dASzvj9KonJmQZ2qAMKC',
-        'HOST': 'containers-us-west-148.railway.app',
-        'PORT': '7403',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "railway",
+        "USER": "postgres",
+        "PASSWORD": "dASzvj9KonJmQZ2qAMKC",
+        "HOST": "containers-us-west-148.railway.app",
+        "PORT": "7403",
     }
 }
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
         # Other authentication classes...
     ],
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
 }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
-LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+LANGUAGE_CODE = "en-us"
+TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://blogaxis-api.up.railway.app',
-    'https://devdox.vercel.app'
-    
+    "https://blogaxis-api.up.railway.app",
+    "https://devdox.vercel.app"
     # Add other trusted origins as needed
 ]
 
 TINYMCE_DEFAULT_CONFIG = {
-    'height': 600,
-    'width': 900,
-    'plugins': 'image  media  code  emoticons  link  preview lists  wordcount  codesample  fullscreen ',
-    'toolbar': 'undo redo | formatselect | bold italic codesample wordcount| alignleft aligncenter alignright emoticons link table view | image media numlist bullist| code preview',
+    "height": 600,
+    "width": 900,
+    "plugins": "image  media  code  emoticons  link  preview lists  wordcount  codesample  fullscreen ",
+    "toolbar": "undo redo | formatselect | bold italic codesample wordcount| alignleft aligncenter alignright emoticons link table view | image media numlist bullist| code preview",
 }
 CORS_ALLOW_HEADERS = (
     "accept",
@@ -142,13 +141,13 @@ CORS_ALLOW_METHODS = (
     "POST",
     "PUT",
 )
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=62),
-    'ROTATE_REFRESH_TOKEN': True,
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=62),
+    "ROTATE_REFRESH_TOKEN": True,
 }
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
