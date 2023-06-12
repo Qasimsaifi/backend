@@ -115,7 +115,8 @@ USE_TZ = True
 
 CSRF_TRUSTED_ORIGINS = [
     "https://blogaxis-api.up.railway.app",
-    "https://devdox.vercel.app"
+    "https://devdox.vercel.app",
+    "http://127.0.0.1:800"
     
     # Add other trusted origins as needed
 ]
