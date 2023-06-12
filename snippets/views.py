@@ -1,5 +1,6 @@
-from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticated
+from rest_framework import viewsets, permissions
+from django.db import models
+from rest_framework.permissions import IsAuthenticated, BasePermission
 from .models import CodeSnippet, Comment
 from .serializers import CodeSnippetSerializer, CommentSerializer
 import django_filters.rest_framework
@@ -15,6 +16,20 @@ class CodeSnippetFilter(django_filters.FilterSet):
 class CodeSnippetPagination(PageNumberPagination):
     page_size = 10
 
+class IsTokenAuthorOrReadOnly(BasePermission):
+    def has_object_permission(self, request, view, obj):
+        if request.method in permissions.SAFE_METHODS:
+            return True
+
+        token_author = request.user.username
+        return obj.author.username == token_author
+
+    def has_permission(self, request, view):
+        if request.method in permissions.SAFE_METHODS:
+            return True
+
+        return request.user.is_authenticated
+
 class CodeSnippetViewSet(viewsets.ModelViewSet):
     queryset = CodeSnippet.objects.all()
     serializer_class = CodeSnippetSerializer
@@ -23,7 +38,17 @@ class CodeSnippetViewSet(viewsets.ModelViewSet):
     ordering_fields = ['publication_date']
     pagination_class = CodeSnippetPagination
     authentication_classes = [JWTAuthentication]
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsTokenAuthorOrReadOnly]
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        if self.request.user.is_authenticated:
+            return queryset.filter(
+                models.Q(is_private=False) |
+                models.Q(is_private=True, author=self.request.user)
+            )
+        else:
+            return queryset.filter(is_private=False)
 
 class CommentFilter(django_filters.FilterSet):
     class Meta:
@@ -41,5 +66,3 @@ class CommentViewSet(viewsets.ModelViewSet):
     ordering_fields = ['created_at']
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
-
-
