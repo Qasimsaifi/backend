@@ -20,6 +20,7 @@ ALLOWED_HOSTS = ["*"]
 CORS_ORIGIN_WHITELIST = [
     'https://blogaxis-api.up.railway.app',
     'http://localhost:5173',
+    'https://devdox.vercel.app'
     # Add other trusted origins as needed
 ]
 
@@ -113,7 +114,9 @@ USE_I18N = True
 USE_TZ = True
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://blogaxis-api.up.railway.app'
+    'https://blogaxis-api.up.railway.app',
+    'https://devdox.vercel.app'
+    
     # Add other trusted origins as needed
 ]
 
