@@ -18,9 +18,15 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 CORS_ORIGIN_WHITELIST = [
+<<<<<<< HEAD
     "https://blogaxis-api.up.railway.app",
     "http://localhost:5173",
     "https://devdox.vercel.app"
+=======
+    'https://blogaxis-api.up.railway.app',
+    'http://localhost:5173',
+    'https://devdox.vercel.app'
+>>>>>>> a9f160d2f1270e4a6b7c76cfec4d505104d307da
     # Add other trusted origins as needed
 ]
 
@@ -114,8 +120,14 @@ USE_I18N = True
 USE_TZ = True
 
 CSRF_TRUSTED_ORIGINS = [
+<<<<<<< HEAD
     "https://blogaxis-api.up.railway.app",
     "https://devdox.vercel.app"
+=======
+    'https://blogaxis-api.up.railway.app',
+    'https://devdox.vercel.app'
+    
+>>>>>>> a9f160d2f1270e4a6b7c76cfec4d505104d307da
     # Add other trusted origins as needed
 ]
 
