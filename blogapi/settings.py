@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 # settings.py
+from datetime import timedelta
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
@@ -58,6 +59,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'whitenoise.runserver_nostatic',
     'tinymce',
+    'snippets',
 ]
 
 MIDDLEWARE = [
@@ -106,6 +108,13 @@ DATABASES = {
         'HOST': 'containers-us-west-148.railway.app',
         'PORT': '7403',
     }
+}
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        # Other authentication classes...
+    ],
+    # Other settings...
 }
 
 
@@ -169,7 +178,10 @@ TINYMCE_DEFAULT_CONFIG = {
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
-
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME':timedelta(days=62),
+    'ROTATE_REFRESH_TOKEN':True
+}
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

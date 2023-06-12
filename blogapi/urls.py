@@ -8,5 +8,6 @@ def welcome(request):
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', welcome),
-    path('api/v1/', include('blogpost.urls')),
+    path('api/v1/blog', include('blogpost.urls')),
+    path('api/v1/snippets/', include('snippets.urls')),
 ]
