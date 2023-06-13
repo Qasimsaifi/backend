@@ -19,6 +19,7 @@ class UserDetailView(APIView):
         user = request.user
         if user.is_authenticated:
             data = {
+                'id': user.id,
                 'email': user.email,
                 'mobile': user.mobile,
                 'profile_picture': user.profile_picture.url if user.profile_picture else None,
