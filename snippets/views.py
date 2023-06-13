@@ -10,7 +10,7 @@ import django_filters.rest_framework
 class CodeSnippetFilter(django_filters.FilterSet):
     class Meta:
         model = CodeSnippet
-        fields = ['id', 'title', 'author' , 'slug']
+        fields = ['id', 'title', 'author' , 'slug','is_private']
 
 class CodeSnippetPagination(PageNumberPagination):
     page_size = 10
