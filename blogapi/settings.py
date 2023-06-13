@@ -114,7 +114,7 @@ USE_I18N = True
 USE_TZ = True
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://devdox.up.railway.app/",
+    "https://devdox.up.railway.app",
     "https://devdox.vercel.app",
     "http://127.0.0.1:800"
     
