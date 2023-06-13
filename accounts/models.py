@@ -13,6 +13,8 @@ class User(AbstractUser):
     forget_password = models.CharField(max_length=100, null=True, blank=True)
     last_login_time = models.DateTimeField(null=True, blank=True)
     last_logout_time = models.DateTimeField(null=True, blank=True)
+    def __str__(self):
+        return self.email
 
     objects = UserManager()
 
