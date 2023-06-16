@@ -5,9 +5,9 @@ from .models import Comment
 
 @admin.register(CodeSnippet)
 class CodeSnippetAdmin(admin.ModelAdmin):
-    list_display = ["id", "title", "created_at", "updated_at"]
+    list_display = ["id", "title", "created_at", "updated_at" , "author", "is_private"]
 
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ["id","snippet", "content" , "author", "is_private"]
+    list_display = ["id","snippet", "content" ]
