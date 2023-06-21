@@ -26,6 +26,7 @@ class CodeSnippet(models.Model):
 
 class Comment(models.Model):
     snippet = models.ForeignKey(CodeSnippet, on_delete=models.CASCADE)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, default=None, on_delete=models.CASCADE, null=False)
     content = models.TextField()
 
     def __str__(self):
