@@ -13,4 +13,4 @@ class CodeSnippetSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ['id', 'snippet', 'content']
+        fields = "__all__"
