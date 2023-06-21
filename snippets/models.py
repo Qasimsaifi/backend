@@ -31,8 +31,9 @@ class Comment(models.Model):
     snippet = models.ForeignKey(CodeSnippet, on_delete=models.CASCADE)
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        default=1,  # Replace 1 with the ID of the default author or an appropriate value
+        default=None,  # Replace 1 with the ID of the default author or an appropriate value
         on_delete=models.CASCADE,
+        
     )
 
     content = models.TextField()
