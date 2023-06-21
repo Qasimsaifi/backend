@@ -64,6 +64,8 @@ class CommentViewSet(viewsets.ModelViewSet):
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend, OrderingFilter]
     filterset_class = CommentFilter
     ordering_fields = ['created_at']
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsTokenAuthorOrReadOnly]
 
 class ModelAuthView(generics.RetrieveAPIView):
     authentication_classes = []
