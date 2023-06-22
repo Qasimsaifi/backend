@@ -10,6 +10,10 @@ class CodeSnippet(models.Model):
         (0, "Public"),
         (1, "Private"),
     )
+    LANGUAGES_CHOICES = (
+        ('python' , "Python"),
+        ('javascript' , "Javascript"),
+    )
 
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, default=None, on_delete=models.CASCADE
@@ -18,6 +22,7 @@ class CodeSnippet(models.Model):
     slug = models.SlugField(unique=True, max_length=255, default="", null=True)
     content = HTMLField()
     code_snippet = HTMLField(null=True)
+    language = models.CharField(choices=LANGUAGES_CHOICES,  max_length=100 , default="javascipt")
     image = CloudinaryField("image", blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

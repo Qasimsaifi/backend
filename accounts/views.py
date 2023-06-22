@@ -1,5 +1,6 @@
 from rest_framework import status
-from rest_framework.views import APIView
+from rest_framework.views import APIView 
+from rest_framework import viewsets, permissions
 from rest_framework.response import Response
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
 
@@ -52,3 +53,8 @@ class UserDetailView(APIView):
             return Response(status=status.HTTP_204_NO_CONTENT)
         else:
             return Response({'detail': 'Authentication credentials were not provided.'}, status=status.HTTP_401_UNAUTHORIZED)
+
+class PublicUserViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
