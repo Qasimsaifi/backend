@@ -21,7 +21,7 @@ class CodeSnippet(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(unique=True, max_length=255, default="", null=True)
     content = HTMLField()
-    code_snippet = models.CharField(null=True)
+    code_snippet = models.TextField(null=True , blank=True)
     language = models.CharField(choices=LANGUAGES_CHOICES,  max_length=100 , default="javascipt")
     image = CloudinaryField("image", blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
