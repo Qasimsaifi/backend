@@ -35,7 +35,6 @@ class CodeSnippetViewSet(viewsets.ModelViewSet):
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend, OrderingFilter]
     filterset_class = CodeSnippetFilter
     ordering_fields = ['publication_date']
-    pagination_class = CodeSnippetPagination
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsTokenAuthorOrReadOnly]
 
