@@ -6,11 +6,11 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from .models import CodeSnippet, Comment
 from .serializers import CodeSnippetSerializer, CommentSerializer
 import django_filters.rest_framework
-
+from rest_framework.response import Response
 class CodeSnippetFilter(django_filters.FilterSet):
     class Meta:
         model = CodeSnippet
-        fields = ['id', 'title', 'author' , 'slug','is_private']
+        fields = ['id', 'title', 'author', 'slug', 'is_private']
 
 class CodeSnippetPagination(PageNumberPagination):
     page_size = 10
@@ -34,7 +34,7 @@ class CodeSnippetViewSet(viewsets.ModelViewSet):
     serializer_class = CodeSnippetSerializer
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend, OrderingFilter]
     filterset_class = CodeSnippetFilter
-    ordering_fields = ['publication_date']
+    ordering_fields = ['created_at']
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsTokenAuthorOrReadOnly]
 
@@ -47,7 +47,6 @@ class CodeSnippetViewSet(viewsets.ModelViewSet):
             )
         else:
             return queryset.filter(is_private=False)
-
 
 class CommentFilter(django_filters.FilterSet):
     class Meta:
@@ -65,6 +64,7 @@ class CommentViewSet(viewsets.ModelViewSet):
     ordering_fields = ['created_at']
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsTokenAuthorOrReadOnly]
+
 
 class ModelAuthView(generics.RetrieveAPIView):
     authentication_classes = []
