@@ -23,6 +23,7 @@ class UserDetailView(APIView):
                 'id': user.id,
                 'email': user.email,
                 'mobile': user.mobile,
+                'username': user.username,
                 'profile_picture': user.profile_picture.url if user.profile_picture else None,
                 'name': {
                     'first_name': user.first_name,
