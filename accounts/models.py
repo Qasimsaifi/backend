@@ -11,7 +11,7 @@ def generate_unique_username():
 
 class User(AbstractUser):
     username = models.CharField(
-        max_length=24,
+        max_length=240,
         default=generate_unique_username,
         unique=True,
     )
