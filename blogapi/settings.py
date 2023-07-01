@@ -21,6 +21,8 @@ CORS_ORIGIN_WHITELIST = [
     "https://devdox.up.railway.app",
     "http://localhost:5173",
     "https://devdox.vercel.app"
+    "http://127.0.0.1:5500"
+
     # Add other trusted origins as needed
 ]
 
@@ -117,6 +119,8 @@ CSRF_TRUSTED_ORIGINS = [
     "https://devdox.up.railway.app",
     "https://devdox.vercel.app",
     "http://127.0.0.1:800"
+    "http://127.0.0.1:5500"
+    
     
     # Add other trusted origins as needed
 ]
