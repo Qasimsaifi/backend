@@ -3,6 +3,7 @@ from rest_framework.views import APIView
 from rest_framework import viewsets, permissions
 from rest_framework.response import Response
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
+from django_filters.rest_framework import DjangoFilterBackend
 
 from .models import User
 from .serializers import UserSerializer
@@ -46,7 +47,6 @@ class UserDetailView(APIView):
         else:
             return Response({'detail': 'Authentication credentials were not provided.'}, status=status.HTTP_401_UNAUTHORIZED)
 
-
     def delete(self, request):
         user = request.user
         if user.is_authenticated:
@@ -59,3 +59,5 @@ class PublicUserViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [IsAuthenticated]
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['username']  # Add any other fields you want to filter on
