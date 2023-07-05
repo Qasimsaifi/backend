@@ -25,6 +25,15 @@ CORS_ORIGIN_WHITELIST = [
 
     # Add other trusted origins as needed
 ]
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Use the SMTP backend
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+
+EMAIL_USE_TLS = True  # Use TLS for secure connection
+EMAIL_HOST_USER = 'kasimthecoder@gmail.com'  # Your email address
+EMAIL_HOST_PASSWORD = 'qmpvcudrfzahvnih'  # Your email password
+
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -41,6 +50,7 @@ INSTALLED_APPS = [
     "tinymce",
     "snippets",
     "accounts",
+    'portfolio',
 ]
 
 MIDDLEWARE = [

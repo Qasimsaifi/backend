@@ -10,4 +10,5 @@ urlpatterns = [
     path('', welcome),
     path('api/v1/snippets/', include('snippets.urls')),
     path('api/v1/user/', include('accounts.urls')),
+    path('api/v1/portfolio/', include('portfolio.urls')),
 ]
