@@ -25,6 +25,8 @@ CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
     "https://kasimsaifi.tech",
     "https://devdox.kasimsaifi.tech",
+    "https://backend.kasimsaifi.tech/",
+
 
 
     # Add other trusted origins as needed
@@ -137,6 +139,8 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
     "https://kasimsaifi.tech",
     "https://devdox.kasimsaifi.tech/",
+    "https://backend.kasimsaifi.tech/",
+
 
     
     
