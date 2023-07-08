@@ -134,6 +134,8 @@ USE_TZ = True
 CSRF_TRUSTED_ORIGINS = [
     "https://devdox.up.railway.app",
     "https://devdox.vercel.app",
+    ".now.sh",
+    ".vercel.app",
     "http://127.0.0.1:800",
     "http://127.0.0.1:5500",
     "http://localhost:3000",
