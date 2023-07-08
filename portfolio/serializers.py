@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Project , Contact
+from .models import Project , Contact , BlogPost
 
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
@@ -11,3 +11,8 @@ class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
         fields = "__all__"
+        
+class BlogPostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BlogPost
+        fields = '__all__'
