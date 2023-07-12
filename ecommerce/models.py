@@ -38,13 +38,6 @@ class Product(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
-        image_urls = []
-        for image in self.images.all():
-            image_urls.append(image.image.url)
-
-        self.images.set([])  # Clear the existing images
-        self.images.set(image_urls)  # Set the new image URLs
-
 
 class Order(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
