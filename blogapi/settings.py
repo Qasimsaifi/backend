@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     "snippets",
     "accounts",
     'portfolio',
+    'ecommerce',
 ]
 
 MIDDLEWARE = [
@@ -134,18 +135,13 @@ USE_TZ = True
 CSRF_TRUSTED_ORIGINS = [
     "https://devdox.up.railway.app",
     "https://devdox.vercel.app",
-    ".now.sh",
-    ".vercel.app",
     "http://127.0.0.1:800",
     "http://127.0.0.1:5500",
     "http://localhost:3000",
     "https://kasimsaifi.tech",
     "https://devdox.kasimsaifi.tech",
     "https://backend.kasimsaifi.tech",
-
-
-    
-    
+  
     # Add other trusted origins as needed
 ]
 
@@ -172,9 +168,8 @@ CORS_ALLOW_METHODS = (
     "PUT",
 )
 STATIC_URL = "/static/"
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static')
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build" , 'static')
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=62),
