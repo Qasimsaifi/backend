@@ -26,7 +26,7 @@ CORS_ORIGIN_WHITELIST = [
     "https://kasimsaifi.tech",
     "https://devdox.kasimsaifi.tech",
     "https://backend.kasimsaifi.tech",
-    'https://check.kasimsaifi.tech/',
+    'https://check.kasimsaifi.tech',
 
 
 
