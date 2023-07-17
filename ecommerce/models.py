@@ -29,6 +29,7 @@ class Product(models.Model):
     date = models.DateField(auto_now_add=True)
     images = models.ManyToManyField("ProductImage", related_name="product_images", blank=True)
     cover_image = models.IntegerField(default=0)
+    payment_link = models.CharField(null=True)
     file = models.URLField(null=True , blank=True)
     is_published = models.BooleanField(default=False)
 
