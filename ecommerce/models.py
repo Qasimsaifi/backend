@@ -28,8 +28,8 @@ class Product(models.Model):
     is_digital = models.BooleanField(default=False)
     date = models.DateField(auto_now_add=True)
     images = models.ManyToManyField("ProductImage", related_name="product_images", blank=True)
-    cover_image = models.IntegerField(default=0)
-    payment_link = models.CharField(null=True)
+    cover_image = models.IntegerField(default=0 )
+    payment_link = models.CharField(null=True , blank=True)
     file = models.URLField(null=True , blank=True)
     is_published = models.BooleanField(default=False)
 
