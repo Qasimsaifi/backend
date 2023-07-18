@@ -13,6 +13,17 @@ class ContactSerializer(serializers.ModelSerializer):
         fields = "__all__"
         
 class BlogPostSerializer(serializers.ModelSerializer):
+    category = serializers.SlugRelatedField(
+        read_only=True,
+        slug_field='name'
+    )
+
+    tags = serializers.SlugRelatedField(
+        many=True,
+        read_only=True,
+        slug_field='name'
+    )
+
     class Meta:
         model = BlogPost
         fields = '__all__'
