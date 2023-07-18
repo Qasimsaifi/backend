@@ -97,11 +97,11 @@ WSGI_APPLICATION = "blogapi.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "railway",
-        "USER": "postgres",
-        "PASSWORD": "dASzvj9KonJmQZ2qAMKC",
-        "HOST": "containers-us-west-148.railway.app",
-        "PORT": "7403",
+        "NAME": "verceldb",
+        "USER": "default",
+        "PASSWORD": "Wz7UYMakxpH4",
+        "HOST": "ep-dawn-salad-335117-pooler.ap-southeast-1.postgres.vercel-storage.com",
+        "PORT": "5432",
     }
 }
 
