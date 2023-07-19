@@ -150,9 +150,14 @@ CSRF_TRUSTED_ORIGINS = [
 TINYMCE_DEFAULT_CONFIG = {
     "height": 600,
     "width": 900,
-    "plugins": "image  media  code  emoticons  link  preview lists  wordcount  codesample  fullscreen ",
-    "toolbar": "undo redo | formatselect | bold italic codesample wordcount| alignleft aligncenter alignright emoticons link table view | image media numlist bullist| code preview",
+    "plugins": "advlist anchor autolink autosave code codesample colorpicker contextmenu directionality emoticons fullscreen help hr image imageupload imagetools insertdatetime link lists media nonbreaking noneditable pagebreak paste preview print save searchreplace spellchecker tabfocus table template textpattern toc visualblocks visualchars wordcount",
+    "toolbar": "undo redo | formatselect | bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | link image imageupload media | code codesample | fullscreen",
 }
+
+
+
+
+
 CORS_ALLOW_HEADERS = (
     "accept",
     "authorization",
