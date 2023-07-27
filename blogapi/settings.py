@@ -97,10 +97,10 @@ WSGI_APPLICATION = "blogapi.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "verceldb",
-        "USER": "default",
-        "PASSWORD": "Wz7UYMakxpH4",
-        "HOST": "ep-dawn-salad-335117-pooler.ap-southeast-1.postgres.vercel-storage.com",
+        "NAME": "postgres",
+        "USER": "postgres",
+        "PASSWORD": "Kasim#$9758",
+        "HOST": "db.kxmuhoapgsniwaghgiml.supabase.co",
         "PORT": "5432",
     }
 }
