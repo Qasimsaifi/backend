@@ -2,8 +2,10 @@ import os
 from pathlib import Path
 from datetime import timedelta
 
+from dotenv import load_dotenv
 import cloudinary
 
+load_dotenv()
 # Add your Cloudinary credentials
 cloudinary.config(
     cloud_name="dehpkgdw5",
@@ -27,9 +29,7 @@ CORS_ORIGIN_WHITELIST = [
     "https://devdox.kasimsaifi.tech",
     "https://backend.kasimsaifi.tech",
     'https://check.kasimsaifi.tech',
-
-
-
+    "https://blogicco.kasimsaifi.tech",
     # Add other trusted origins as needed
 ]
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Use the SMTP backend
@@ -95,13 +95,13 @@ TEMPLATES = [
 WSGI_APPLICATION = "blogapi.wsgi.application"
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "postgres",
-        "USER": "postgres",
-        "PASSWORD": "Kasim#$9758",
-        "HOST": "db.kxmuhoapgsniwaghgiml.supabase.co",
-        "PORT": "5432",
+    'default': {
+        'ENGINE': os.environ.get('DATABASE_ENGINE', 'django.db.backends.sqlite3'),
+        'NAME': os.environ.get('DATABASE_NAME', ''),
+        'USER': os.environ.get('DATABASE_USER', ''),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', ''),
+        'HOST': os.environ.get('DATABASE_HOST', ''),
+        'PORT': os.environ.get('DATABASE_PORT', ''),
     }
 }
 

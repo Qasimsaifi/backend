@@ -7,7 +7,7 @@
 *.pyc
 __pycache__/
 local_settings.py
-
+Lib
 # Ignore database files
 
 
